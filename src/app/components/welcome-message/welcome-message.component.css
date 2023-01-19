@@ -1,0 +1,25 @@
+.example-card {
+  max-width: 500px;
+  height: 100%;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+.card-div {
+  margin-top: 200px;
+  text-align: -webkit-center;
+  height: 500px;
+}
+
+mat-card-header {
+  text-align: center;
+}
+
+mat-card-actions {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
