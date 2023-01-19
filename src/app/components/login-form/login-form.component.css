@@ -33,13 +33,13 @@ body {
   float: left;
   padding: 60px 50px 40px 50px;
   width: 100%;
+  max-width: 450px;
   background: #fff;
   border-radius: 10px;
   transform: scale(1);
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   z-index: 5;
-  max-width: 330px;
 }
 .box.back {
   transform: scale(0.95);

@@ -1,3 +1,4 @@
+import { HomePageComponent } from './components/home-page/home-page.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'login', component: LoginFormComponent },
   { path: 'signup', component: SignupFormComponent },
   { path: 'profile', component: ProfilePageComponent },
+  { path: 'home', component: HomePageComponent },
 ];
 
 @NgModule({
