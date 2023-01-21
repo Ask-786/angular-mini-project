@@ -31,7 +31,15 @@ export class SignupFormComponent {
   ) {}
 
   onSubmit() {
-    if (!this.username || !this.email || !this.password) {
+    if (
+      this.passwordFormControl.hasError('minlength') ||
+      this.passwordFormControl.hasError('required') ||
+      this.usernameFormControl.hasError('required') ||
+      this.usernameFormControl.hasError('minlength') ||
+      this.emailFormControl.hasError('minlength') ||
+      this.emailFormControl.hasError('required')
+    ) {
+      alert('not true');
       return;
     }
 

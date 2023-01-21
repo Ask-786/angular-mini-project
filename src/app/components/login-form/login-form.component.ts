@@ -11,10 +11,12 @@ import { Router } from '@angular/router';
 export class LoginFormComponent {
   username!: string;
   password!: string;
+
   usernameFormControl = new FormControl('', [
     Validators.minLength(6),
     Validators.required,
   ]);
+
   passwordFormControl = new FormControl('', [
     Validators.minLength(8),
     Validators.required,
@@ -26,10 +28,15 @@ export class LoginFormComponent {
   ) {}
 
   onSubmit() {
-    if (!this.username || !this.password) {
+    if (
+      this.passwordFormControl.hasError('minlength') ||
+      this.passwordFormControl.hasError('required') ||
+      this.usernameFormControl.hasError('required') ||
+      this.usernameFormControl.hasError('minlength')
+    ) {
+      alert('not true');
       return;
     }
-
     const user = {
       username: this.username,
       password: this.password,
