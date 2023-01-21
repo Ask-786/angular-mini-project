@@ -3,18 +3,38 @@
         <mat-card-header>
             <mat-card-title>Log in</mat-card-title>
         </mat-card-header>
-        <form class="example-form">
+        <form class="example-form" (ngSubmit)="onSubmit()">
             <mat-card-content>
-                <mat-form-field class="example-full-width" appearance="outline">
+
+                <mat-form-field class="example-full-width">
                     <mat-label>Username</mat-label>
-                    <input matInput>
+                    <input type="text" name="username" id="email" matInput [formControl]="usernameFormControl"
+                        placeholder="Jhone-Doe" [(ngModel)]="username">
+                    <mat-error
+                        *ngIf="usernameFormControl.hasError('minlength') && !usernameFormControl.hasError('required')">
+                        Username should contain atleast 6 charactors
+                    </mat-error>
+                    <mat-error *ngIf="usernameFormControl.hasError('required')">
+                        Username is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
-                <mat-form-field class="example-full-width" appearance="outline">
+
+                <mat-form-field class="example-full-width">
                     <mat-label>Password</mat-label>
-                    <input matInput>
+                    <input type="password" name="password" id="password" [(ngModel)]="password" matInput
+                        [formControl]="passwordFormControl" placeholder="Jhone-Doe">
+                    <mat-error
+                        *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
+                        Password should contain atleast 8 charactors
+                    </mat-error>
+                    <mat-error *ngIf="passwordFormControl.hasError('required')">
+                        Password is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
             </mat-card-content>
-            <button mat-stroked-button color="accent" class="btn-block">Log in</button>
+
+            <button mat-stroked-button type="submit" color="accent" class="btn-block">Log in</button>
         </form>
+        <a routerLink="/signup">Go to signup</a>
     </mat-card>
 </div>

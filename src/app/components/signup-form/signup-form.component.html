@@ -5,20 +5,50 @@
         </mat-card-header>
         <form class="example-form" (ngSubmit)="onSubmit()">
             <mat-card-content>
-                <mat-form-field class="example-full-width" appearance="outline">
+
+
+                <mat-form-field class="example-full-width">
                     <mat-label>Username</mat-label>
-                    <input matInput name="usename" [(ngModel)]="username">
+                    <input type="text" name="username" id="email" matInput [formControl]="usernameFormControl"
+                        placeholder="Jhone-Doe" [(ngModel)]="username">
+                    <mat-error
+                        *ngIf="usernameFormControl.hasError('minlength') && !usernameFormControl.hasError('required')">
+                        Username should contain atleast 6 charactors
+                    </mat-error>
+                    <mat-error *ngIf="usernameFormControl.hasError('required')">
+                        Username is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
-                <mat-form-field class="example-full-width" appearance="outline">
+
+
+                <mat-form-field class="example-full-width">
                     <mat-label>Email</mat-label>
-                    <input matInput name="email" [(ngModel)]="email">
+                    <input type="email" name="email" id="email" matInput [formControl]="emailFormControl"
+                        placeholder="Ex. pat@example.com" [(ngModel)]="email">
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                        Email is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
-                <mat-form-field class="example-full-width" appearance="outline">
+
+
+                <mat-form-field class="example-full-width">
                     <mat-label>Password</mat-label>
-                    <input matInput name="password" [(ngModel)]="password">
+                    <input type="password" name="password" id="password" [(ngModel)]="password" matInput
+                        [formControl]="passwordFormControl" placeholder="Jhone-Doe">
+                    <mat-error
+                        *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
+                        Password should contain atleast 8 charactors
+                    </mat-error>
+                    <mat-error *ngIf="passwordFormControl.hasError('required')">
+                        Password is <strong>required</strong>
+                    </mat-error>
                 </mat-form-field>
             </mat-card-content>
             <button mat-stroked-button color="accent" class="btn-block" type="submit">Register</button>
         </form>
+        <a routerLink="/login">Go to Login</a>
     </mat-card>
 </div>

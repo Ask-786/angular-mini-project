@@ -1,5 +1,7 @@
+import { AuthServiceService } from './../../services/auth-service.service';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
+import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +9,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authService: AuthServiceService
+  ) {}
 
   hasNotRoute(root: string, login: string, signup: string): boolean {
     return (
@@ -15,5 +20,12 @@ export class NavbarComponent {
       this.router.url !== login &&
       this.router.url !== signup
     );
+  }
+
+  onLogout() {
+    if (confirm('are you sure')) {
+      this.authService.userLogout();
+      this.router.navigate(['']);
+    }
   }
 }
