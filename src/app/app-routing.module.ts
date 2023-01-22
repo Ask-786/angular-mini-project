@@ -6,8 +6,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { WelcomeMessageComponent } from './components/welcome-message/welcome-message.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IsAuthenticatedGuard } from './is-authenticated.guard';
-import { IsNotAuthenticatedGuard } from './is-not-authenticated.guard';
+import { IsAuthenticatedGuard } from './guards/is-authenticated.guard';
+import { IsNotAuthenticatedGuard } from './guards/is-not-authenticated.guard';
 
 const routes: Routes = [
   {

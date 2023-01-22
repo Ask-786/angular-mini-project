@@ -46,7 +46,6 @@ export class LoginFormComponent {
       if (response.status) {
         this.router.navigate(['home']);
       } else {
-        console.log(response);
         alert(response.message);
       }
     });
